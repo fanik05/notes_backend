@@ -5,15 +5,15 @@
   "author": "Fatin Noor Anik",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=production node index.js",
-    "dev": "NODE_ENV=development nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
     "build:ui": "rm -rf build && cd ../notes/ && yarn build && cp -r build ../notes_backend",
     "deploy": "git push heroku main",
     "deploy:full": "yarn build:ui && git add . && git commit -m uibuild && git push && yarn deploy",
     "logs:prod": "heroku logs --tail",
     "lint": "eslint .",
     "prettier": "prettier --write .",
-    "test": "NODE_ENV=test jest --verbose --runInBand"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "engines": {
     "node": "16.x"
