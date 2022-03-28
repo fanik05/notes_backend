@@ -16,7 +16,7 @@ notesRouter.post('/', async (request, response) => {
   })
 
   const savedNote = await note.save()
-  response.json(savedNote)
+  response.status(201).json(savedNote)
 })
 
 notesRouter.get('/:id', async (request, response) => {
